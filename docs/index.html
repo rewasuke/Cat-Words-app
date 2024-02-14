@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assests/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assests/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assests/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assests/site.webmanifest" />
+    <title>Cat Words App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/semantic.min.css" />
+    <link rel="stylesheet" href="./css/bundle.css" />
+  </head>
+  <body class="flex justify-center h-screen font-Rubik">
+    <main class="w-80 mt-32">
+      <div class="admin flex justify-between items-center">
+        <img class="w-10" src="./assests/cat.png" alt="" />
+        <span class="font-Start text-2xl uppercase">Cat Words</span>
+        <div class="relative inline-block" id="admin">
+          <img
+            class="inline-block h-[2.375rem] w-[2.375rem] rounded-full object-cover"
+            src="./assests/admin.jpg"
+            alt="Image Description"
+          />
+          <span
+            class="absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-red-400"
+          ></span>
+          <div
+            class="!hidden absolute right-0 !w-24 ui vertical menu !font-Rubik"
+            id="menu"
+          >
+            <span class="link item login">Нэвтрэх</span>
+            <span class="item adminName">Нэвтрэх</span>
+            <span class="link item logout">Гарах</span>
+          </div>
+        </div>
+      </div>
+      <!-- Top -->
+      <div class="top h-20 flex justify-between items-center">
+        <!-- Select -->
+        <select class="text-sm !min-w-32 ui dropdown" id="select">
+          <option value="">Хичээл сонгох...</option>
+          <option value="Хичээл 1">Хичээл 1</option>
+          <option value="Хичээл 2">Хичээл 2</option>
+          <option value="Хичээл 3">Хичээл 3</option>
+          <option value="users">users</option>
+          <option value="ном">Ном</option>
+          <option value="Топик">Топик</option>
+        </select>
+        <div class="flex flex-col items-end">
+          <span class="mainName text-2xl">Хичээл Нэр</span>
+          <span class="mainSub text-xs text-gray-400">тайлбар</span>
+        </div>
+        <!-- End Select -->
+      </div>
+      <!-- End Top -->
+
+      <!-- Word -->
+      <div
+        class="flex flex-col justify-center items-center h-3/6 rounded-3xl bg-[#D6EBEB] my-3"
+      >
+        <div class="word font-Start text-5xl">Бэлэн үү</div>
+        <div class="tran hidden absolute mt-40 lowercase"></div>
+      </div>
+      <!-- End Word -->
+
+      <!-- Button -->
+      <div class="bottom mt-6">
+        <div class="first flex space-x-2">
+          <div
+            class="flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </div>
+            <button
+              type="button"
+              class="px-2"
+              data-hs-overlay="#hs-overlay-bottom"
+            >
+              Үг нэмэх
+            </button>
+          </div>
+          <div
+            class="active:translate-y-1 ease-in duration-75 hold flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
+              <svg
+                class="flex-shrink-0 w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
+                />
+              </svg>
+            </div>
+            <button type="button" class="px-2">Орчуулга</button>
+          </div>
+        </div>
+
+        <div class="next mt-3">
+          <button
+            type="button"
+            class="active:translate-y-1 ease-in duration-75 w-full py-2 px-2 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+              <svg
+                class="flex-shrink-0 w-8 h-8"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </div>
+            <div class="pr-12 text-lg">Дараагийн үг</div>
+          </button>
+        </div>
+      </div>
+      <!-- END Button -->
+
+      <!-- Toast -->
+      <div
+        class="hidden absolute right-0 bottom-2 max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
+        role="alert"
+      >
+        <div class="flex p-4">
+          <div class="flex-shrink-0">
+            <svg
+              class="flex-shrink-0 h-4 w-4 text-teal-500 mt-0.5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+              />
+            </svg>
+          </div>
+          <div class="ms-3">
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              This is a success message.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End Toast -->
+
+      <div
+        id="hs-overlay-bottom"
+        class="rounded-t-3xl space-y-4 hs-overlay hs-overlay-open:translate-y-0 translate-y-full fixed bottom-0 inset-x-0 transition-all duration-300 transform p-6 h-3/6 w-full z-[80] bg-white border-b dark:bg-gray-800 dark:border-gray-700 hidden"
+        tabindex="-1"
+      >
+        <div class="flex flex-col justify-center space-y-6">
+          <span class="text-center text-2xl">Шинэ үг нэмэх</span>
+
+          <form class="ui form flex flex-col justify-center items-center">
+            <div class="flex flex-col w-full">
+              <div class="field">
+                <label>Шинэ үг</label>
+                <input type="text" name="name1" id="nameText" />
+              </div>
+              <div class="field">
+                <label>Орчуулга</label>
+                <input type="text" name="name2" id="translateText" />
+              </div>
+              <div class="field">
+                <label>Хичээл сонгох</label>
+                <div class="ui fluid selection dropdown">
+                  <input type="hidden" name="gender" id="wer" />
+                  <div class="default text selectVale">Хичээл сонгох...</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="1">ном</div>
+                    <div class="item" data-value="0">users</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui submit">
+              <button
+                type="button"
+                class="active:translate-y-1 ease-in duration-75 py-2 px-2 mt w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              >
+                <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+                  <svg
+                    class="flex-shrink-0 w-8 h-8"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <div class="pr-8 text-lg">үг нэмэх</div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyA_hnNKbv-nBRNvKmgv6Vg-xX6fcPX8nYM",
+        authDomain: "tsks-link-saver.firebaseapp.com",
+        databaseURL: "https://tsks-link-saver-default-rtdb.firebaseio.com",
+        projectId: "tsks-link-saver",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      const db = firebase.firestore();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
+    <script src="./js/semantic.min.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
