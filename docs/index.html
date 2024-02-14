@@ -26,10 +26,14 @@
     <link rel="stylesheet" href="./css/semantic.min.css" />
     <link rel="stylesheet" href="./css/bundle.css" />
   </head>
-  <body class="flex justify-center font-Rubik">
+  <body class="flex justify-center font-Rubik select-none">
     <main class="flex flex-col justify-center w-96">
       <div class="admin flex justify-between items-center">
-        <img class="w-10" src="./assests/cat.png" alt="" />
+        <img
+          class="w-12 active:translate-y-1 ease-in duration-75"
+          src="./assests/cat.png"
+          alt=""
+        />
         <span class="font-Start text-2xl uppercase">Cat Words</span>
         <div class="relative inline-block" id="admin">
           <img
@@ -40,14 +44,63 @@
           <span
             class="absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-red-400"
           ></span>
-          <div
-            class="!hidden absolute right-0 !w-[8rem] ui vertical menu !font-Rubik"
+          <!-- <div
+            class="!hidden absolute right-0 !w-[12rem] ui vertical menu !font-Rubik"
             id="menu"
           >
-            <span class="link item login">Нэвтрэх</span>
-            <span class="item adminName">Нэвтрэх</span>
-            <span class="link item logout">Гарах</span>
-          </div>
+            <span
+              class="!flex justify-between items-center text-nowrap link item login"
+              id="gLogin"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335"
+                />
+                <path d="M1 1h22v22H1z" fill="none" />
+              </svg>
+              <span class="pl-2"> google-ээр нэвтрэх</span>
+            </span>
+            <span class="item !hidden !text-amber-500" id="adminName"
+              >Нэвтрэх</span
+            >
+            <span class="!flex items-center link item" id="logout">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style="
+                  fill: rgba(123, 123, 123, 1);
+                  transform: scaleY(-1);
+                  msfilter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+                "
+              >
+                <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                <path
+                  d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"
+                ></path>
+              </svg>
+              <span class="pl-4"> Гарах</span>
+            </span>
+          </div> -->
         </div>
       </div>
       <!-- Top -->
@@ -74,7 +127,7 @@
       <div
         class="flex flex-col justify-center items-center h-3/6 rounded-3xl bg-[#D6EBEB] my-3"
       >
-        <div class="word font-Start text-5xl">Бэлэн үү</div>
+        <div class="word font-Start text-6xl">Бэлэн үү</div>
         <div class="tran hidden absolute mt-40 lowercase"></div>
       </div>
       <!-- End Word -->
@@ -102,6 +155,7 @@
               </svg>
             </div>
             <button
+              id="modal"
               type="button"
               class="px-4"
               data-hs-overlay="#hs-overlay-bottom"
@@ -192,7 +246,7 @@
 
       <div
         id="hs-overlay-bottom"
-        class="rounded-t-3xl space-y-4 hs-overlay hs-overlay-open:translate-y-0 translate-y-full fixed bottom-0 inset-x-0 transition-all duration-300 transform p-6 h-3/6 w-full z-[80] bg-white border-b dark:bg-gray-800 dark:border-gray-700 hidden"
+        class="hidden rounded-t-3xl space-y-4 hs-overlay hs-overlay-open:translate-y-0 translate-y-full fixed bottom-0 inset-x-0 transition-all duration-300 transform p-6 h-3/6 w-full z-[80] bg-white border-b dark:bg-gray-800 dark:border-gray-700"
         tabindex="-1"
       >
         <div class="flex flex-col justify-center space-y-6">
@@ -201,15 +255,15 @@
           <form class="ui form flex flex-col justify-center items-center">
             <div class="flex flex-col w-full">
               <div class="field">
-                <label>Шинэ үг</label>
+                <label class="!font-medium">Шинэ үг</label>
                 <input type="text" name="name1" id="nameText" />
               </div>
               <div class="field">
-                <label>Орчуулга</label>
+                <label class="!font-medium">Орчуулга</label>
                 <input type="text" name="name2" id="translateText" />
               </div>
               <div class="field">
-                <label>Хичээл сонгох</label>
+                <label class="!font-medium">Хичээл сонгох</label>
                 <div class="ui fluid selection dropdown">
                   <input type="hidden" name="gender" id="wer" />
                   <div class="default text selectVale">Хичээл сонгох...</div>
@@ -252,20 +306,107 @@
     </main>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
 
     <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const _0x25f8b0 = _0x3ee6;
+      function _0x3ee6(_0x254b64, _0x67eb7) {
+        const _0x92b818 = _0x1387();
+        return (
+          (_0x3ee6 = function (_0x5a9939, _0x355667) {
+            _0x5a9939 = _0x5a9939 - (-0x91b + -0xfe5 + 0x1a4f);
+            let _0x4d59d9 = _0x92b818[_0x5a9939];
+            return _0x4d59d9;
+          }),
+          _0x3ee6(_0x254b64, _0x67eb7)
+        );
+      }
+      function _0x1387() {
+        const _0x4b0c57 = [
+          "firestore",
+          "AIzaSyA_hn",
+          "ebaseio.co",
+          "baseapp.co",
+          "saver",
+          "initialize",
+          "510iqyAUu",
+          "https://ts",
+          "ver-defaul",
+          "auth",
+          "198872yrpBxm",
+          "54607YGzKQF",
+          "NKbv-nBRNv",
+          "Kmgv6Vg-xX",
+          "14746mDsleh",
+          "saver.fire",
+          "t-rtdb.fir",
+          "App",
+          "9759560vYNUDC",
+          "782802eNdrEy",
+          "13553001dFwdFV",
+          "tsks-link-",
+          "468qQszYc",
+          "6fcPX8nYM",
+          "430yEMhAO",
+          "ks-link-sa",
+          "75848vgACXl",
+        ];
+        _0x1387 = function () {
+          return _0x4b0c57;
+        };
+        return _0x1387();
+      }
+      (function (_0x746148, _0x55ac6e) {
+        const _0x432f25 = _0x3ee6,
+          _0x1ab436 = _0x746148();
+        while (!![]) {
+          try {
+            const _0x50dbd6 =
+              -parseInt(_0x432f25(0x169)) /
+                (-0xa * -0x2ce + 0x1e * -0x109 + 0x303) +
+              (-parseInt(_0x432f25(0x164)) /
+                (-0x258d + 0x23 * -0x11 + 0x7fa * 0x5)) *
+                (-parseInt(_0x432f25(0x151)) /
+                  (0x1253 + -0x12d3 * 0x1 + 0x1 * 0x83)) +
+              (parseInt(_0x432f25(0x155)) /
+                (-0x164 * 0x11 + -0x1e05 + 0x35ad)) *
+                (parseInt(_0x432f25(0x153)) /
+                  (-0x174b * -0x1 + -0xb * -0x92 + -0x7a * 0x3e)) +
+              (parseInt(_0x432f25(0x15c)) /
+                (0x2af * 0x4 + 0x5c9 * 0x1 + -0x107f)) *
+                (-parseInt(_0x432f25(0x161)) /
+                  (0x1f7 * 0xa + 0xccb * 0x1 + -0x206a)) +
+              parseInt(_0x432f25(0x160)) /
+                (-0x2601 + 0x34 * -0xbf + -0x4cd5 * -0x1) +
+              -parseInt(_0x432f25(0x14f)) / (-0x19ab + 0x1f91 + -0x5dd) +
+              parseInt(_0x432f25(0x168)) / (-0x1220 + -0x1083 * 0x1 + 0x22ad);
+            if (_0x50dbd6 === _0x55ac6e) break;
+            else _0x1ab436["push"](_0x1ab436["shift"]());
+          } catch (_0x263e52) {
+            _0x1ab436["push"](_0x1ab436["shift"]());
+          }
+        }
+      })(_0x1387, -0x1c59d + 0x15799d * -0x1 + 0x23e941);
       var firebaseConfig = {
-        apiKey: "AIzaSyA_hnNKbv-nBRNvKmgv6Vg-xX6fcPX8nYM",
-        authDomain: "tsks-link-saver.firebaseapp.com",
-        databaseURL: "https://tsks-link-saver-default-rtdb.firebaseio.com",
-        projectId: "tsks-link-saver",
+        apiKey:
+          _0x25f8b0(0x157) +
+          _0x25f8b0(0x162) +
+          _0x25f8b0(0x163) +
+          _0x25f8b0(0x152),
+        authDomain:
+          _0x25f8b0(0x150) + _0x25f8b0(0x165) + _0x25f8b0(0x159) + "m",
+        databaseURL:
+          _0x25f8b0(0x15d) +
+          _0x25f8b0(0x154) +
+          _0x25f8b0(0x15e) +
+          _0x25f8b0(0x166) +
+          _0x25f8b0(0x158) +
+          "m",
+        projectId: _0x25f8b0(0x150) + _0x25f8b0(0x15a),
       };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-      const db = firebase.firestore();
+      firebase[_0x25f8b0(0x15b) + _0x25f8b0(0x167)](firebaseConfig);
+      const auth = firebase[_0x25f8b0(0x15f)](),
+        db = firebase[_0x25f8b0(0x156)]();
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>

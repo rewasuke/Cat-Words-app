@@ -1,3 +1,46 @@
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().languageCode = "mn";
+
+$("#gLogin").on("click", function () {
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+      var user = result.user;
+      var displayName = user.displayName;
+      if (user.uid === "JVcxs3keNJMnUjfa0EAQHCyHmwN2") {
+        console.log(displayName);
+        $("#gLogin").addClass("!hidden");
+        $("#adminName").removeClass("!hidden");
+        $("#adminName").replaceWith(
+          `<span class="item" id="adminName">Admin: ${displayName}</span>`
+        );
+        // $("#modal").on("click", function () {
+        //   $("#hs-overlay-bottom").addClass("hidden");
+        //   console.log("object");
+        // });
+      }
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+});
+
+$("#logout").on("click", function () {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      $("#gLogin").removeClass("!hidden");
+      $("#adminName").addClass("!hidden");
+      // $("#hs-overlay-bottom").removeClass("hidden");
+    })
+    .catch((error) => {});
+});
+
 $("#select").dropdown();
 
 $(".ui.dropdown").dropdown();
@@ -45,7 +88,7 @@ $("#select").change(function () {
       `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
     );
     $(".mainSub").replaceWith(
-      `<span class="mainSub text-xs text-gray-400">${sukeValue} -н холбоотой үгнүүд </span>`
+      `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд </span>`
     );
   }
 
@@ -57,7 +100,7 @@ $("#select").change(function () {
 
   current2.classList.add("hidden");
   btnHold.addEventListener("click", function () {
-    html = `<span class="translate">$rename2$</span>`;
+    html = `<span class=" text-2xl translate">$rename2$</span>`;
     html = html.replace("$rename2$", translate);
     current2.innerHTML = html;
 
@@ -75,7 +118,7 @@ $("#select").change(function () {
       let randomItem = books[Math.floor(Math.random() * books.length)];
       let rename = randomItem.Name;
       current2.classList.add("hidden");
-      html = `<h2 class="text-3xl font-Rubik">$rename1$</h2>`;
+      html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
       html = html.replace("$rename1$", rename);
       current.innerHTML = html;
 
