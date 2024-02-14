@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="./css/bundle.css" />
   </head>
   <body class="flex justify-center font-Rubik">
-    <main class="w-96">
+    <main class="flex flex-col justify-center w-96">
       <div class="admin flex justify-between items-center">
         <img class="w-10" src="./assests/cat.png" alt="" />
         <span class="font-Start text-2xl uppercase">Cat Words</span>
@@ -41,7 +41,7 @@
             class="absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-red-400"
           ></span>
           <div
-            class="!hidden absolute right-0 !w-24 ui vertical menu !font-Rubik"
+            class="!hidden absolute right-0 !w-[8rem] ui vertical menu !font-Rubik"
             id="menu"
           >
             <span class="link item login">Нэвтрэх</span>
@@ -103,7 +103,7 @@
             </div>
             <button
               type="button"
-              class="px-2"
+              class="px-4"
               data-hs-overlay="#hs-overlay-bottom"
             >
               Үг нэмэх
@@ -129,14 +129,14 @@
                 />
               </svg>
             </div>
-            <button type="button" class="px-2">Орчуулга</button>
+            <button type="button" class="px-4">Орчуулга</button>
           </div>
         </div>
 
         <div class="next mt-3">
           <button
             type="button"
-            class="active:translate-y-1 ease-in duration-75 w-full py-2 px-2 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            class="active:translate-y-1 ease-in duration-75 w-full py-2 px-4 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >
             <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
               <svg
@@ -155,7 +155,7 @@
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </div>
-            <div class="pr-12 text-lg">Дараагийн үг</div>
+            <div class="pr-20 text-lg">Дараагийн үг</div>
           </button>
         </div>
       </div>
@@ -221,10 +221,10 @@
                 </div>
               </div>
             </div>
-            <div class="ui submit">
+            <div class="ui submit mt-4">
               <button
                 type="button"
-                class="active:translate-y-1 ease-in duration-75 py-2 px-2 mt w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                class="active:translate-y-1 ease-in duration-75 py-2 px-2 w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
                 <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
                   <svg
@@ -243,7 +243,7 @@
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </div>
-                <div class="pr-8 text-lg">үг нэмэх</div>
+                <div class="pr-16 text-lg">үг нэмэх</div>
               </button>
             </div>
           </form>
