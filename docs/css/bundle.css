@@ -647,14 +647,6 @@ video {
   top: 100%;
 }
 
-.top-2{
-  top: 0.5rem;
-}
-
-.top-1{
-  top: 0.25rem;
-}
-
 .z-\[1\]{
   z-index: 1;
 }
@@ -822,12 +814,20 @@ video {
   width: 2.375rem;
 }
 
+.w-\[25rem\]{
+  width: 25rem;
+}
+
 .w-\[calc\(100\%-2rem\)\]{
   width: calc(100% - 2rem);
 }
 
 .w-full{
   width: 100%;
+}
+
+.w-96{
+  width: 24rem;
 }
 
 .\!min-w-32{
@@ -1029,16 +1029,16 @@ video {
   text-align: center;
 }
 
+.\!font-Rubik{
+  font-family: Rubik !important;
+}
+
 .font-Rubik{
   font-family: Rubik;
 }
 
 .font-Start{
   font-family: Rubik Doodle Shadow;
-}
-
-.\!font-Rubik{
-  font-family: Rubik !important;
 }
 
 .\!text-sm{
