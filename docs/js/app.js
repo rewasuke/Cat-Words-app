@@ -18,6 +18,7 @@ $("#gLogin").on("click", function () {
           `<span class="item" id="adminName">Admin: ${displayName}</span>`
         );
         $("#modal1").removeAttr("disabled");
+        $("#modal2").removeAttr("disabled");
       }
     })
     .catch((error) => {
@@ -34,6 +35,7 @@ $("#logout").on("click", function () {
       $("#gLogin").removeClass("!hidden");
       $("#adminName").addClass("!hidden");
       $("#modal1").attr("disabled", true);
+      $("#modal2").attr("disabled", true);
       // $("#hs-overlay-bottom").removeClass("hidden");
     })
     .catch((error) => {});
