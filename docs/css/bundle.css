@@ -850,6 +850,10 @@ video {
   width: 100%;
 }
 
+.w-40{
+  width: 10rem;
+}
+
 .\!min-w-32{
   min-width: 8rem !important;
 }
@@ -1350,4 +1354,11 @@ video {
 :is(.dark .dark\:focus\:ring-gray-600:focus){
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
+}
+
+@media (min-width: 768px){
+  .md\:my-1{
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
 }

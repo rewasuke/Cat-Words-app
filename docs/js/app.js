@@ -109,21 +109,19 @@ $(window).resize(function () {
 
 $(".item").addClass("!text-sm");
 
+$("#next").on("click", function () {
+  $("#toastInit").removeClass("hidden");
+  setTimeout(function () {
+    $("#toastInit").addClass("hidden");
+  }, 3000);
+});
+
 $("#select").change(function () {
   //Use $option (with the "$") to see that the variable is a jQuery object
   var $option = $(this).find("option:selected");
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
   console.log(sukeValue);
-
-  // $("#next").on("click", function () {
-  //   if (sukeValue == 1) {
-  //     $("#toastInit").removeClass("hidden");
-  //     setTimeout(function () {
-  //       $("#toastInit").addClass("hidden");
-  //     }, 3000);
-  //   }
-  // });
 
   if (sukeValue) {
     $(".mainName").replaceWith(
