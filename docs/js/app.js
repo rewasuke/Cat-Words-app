@@ -11,15 +11,24 @@ $("#gLogin").on("click", function () {
       var user = result.user;
       var displayName = user.displayName;
       if (user.uid === "JVcxs3keNJMnUjfa0EAQHCyHmwN2") {
-        console.log(displayName);
         $("#gLogin").addClass("!hidden");
+        $("#logout").removeClass("!hidden");
         $("#adminName").removeClass("!hidden");
         $("#adminName").replaceWith(
-          `<span class="item" id="adminName">Admin: ${displayName}</span>`
+          `<span class="item " id="adminName">
+          <span class="">Admin:</span>
+          <span class="text-cyan-500 px-2">${displayName}</span>
+          </span>`
         );
         $("#modal1").removeAttr("disabled");
         $("#modal2").removeAttr("disabled");
+        $("#toastLogin").removeClass("hidden");
       }
+      $("#toast1").addClass("hidden");
+
+      setTimeout(function () {
+        $("#toastLogin").addClass("hidden");
+      }, 3000);
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -34,11 +43,25 @@ $("#logout").on("click", function () {
     .then(() => {
       $("#gLogin").removeClass("!hidden");
       $("#adminName").addClass("!hidden");
+      $("#logout").addClass("!hidden");
       $("#modal1").attr("disabled", true);
       $("#modal2").attr("disabled", true);
-      // $("#hs-overlay-bottom").removeClass("hidden");
+      $("#toast1").removeClass("hidden");
     })
     .catch((error) => {});
+});
+
+$("#toast1").on("click", function () {
+  $("#toastModal").removeClass("hidden");
+  setTimeout(function () {
+    $("#toastModal").addClass("hidden");
+  }, 3000);
+});
+$("#exit").on("click", function () {
+  $("#toastOut").removeClass("hidden");
+  setTimeout(function () {
+    $("#toastOut").addClass("hidden");
+  }, 3000);
 });
 
 $("#select").dropdown();
@@ -54,7 +77,6 @@ $(".ui.form").form({
 });
 $("#wer").change(() => {
   const selectVale = $(".selectVale").text();
-  console.log(selectVale);
 
   const nameText = $("#nameText").val();
   console.log(nameText);
@@ -94,6 +116,16 @@ $("#select").change(function () {
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
   console.log(sukeValue);
+
+  // $("#next").on("click", function () {
+  //   if (sukeValue == 1) {
+  //     $("#toastInit").removeClass("hidden");
+  //     setTimeout(function () {
+  //       $("#toastInit").addClass("hidden");
+  //     }, 3000);
+  //   }
+  // });
+
   if (sukeValue) {
     $(".mainName").replaceWith(
       `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
