@@ -17,10 +17,7 @@ $("#gLogin").on("click", function () {
         $("#adminName").replaceWith(
           `<span class="item" id="adminName">Admin: ${displayName}</span>`
         );
-        // $("#modal").on("click", function () {
-        //   $("#hs-overlay-bottom").addClass("hidden");
-        //   console.log("object");
-        // });
+        $("#modal1").removeAttr("disabled");
       }
     })
     .catch((error) => {
@@ -36,6 +33,7 @@ $("#logout").on("click", function () {
     .then(() => {
       $("#gLogin").removeClass("!hidden");
       $("#adminName").addClass("!hidden");
+      $("#modal1").attr("disabled", true);
       // $("#hs-overlay-bottom").removeClass("hidden");
     })
     .catch((error) => {});
@@ -73,6 +71,17 @@ $("#wer").change(() => {
     .catch((error) => {
       console.error("Error writing document: ", error);
     });
+});
+
+// jQuery with CSS Media Queries
+$(window).resize(function () {
+  if ($("#body").width() <= 640) {
+    $("#modal2").removeClass("hidden");
+    $("#modal1").addClass("hidden");
+  } else {
+    $("#modal1").removeClass("hidden");
+    $("#modal2").addClass("hidden");
+  }
 });
 
 $(".item").addClass("!text-sm");

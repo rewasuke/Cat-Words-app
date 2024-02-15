@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./css/semantic.min.css" />
     <link rel="stylesheet" href="./css/bundle.css" />
   </head>
-  <body class="flex justify-center font-Rubik select-none">
+  <body id="body" class="flex justify-center font-Rubik select-none">
     <main class="flex flex-col justify-center w-96">
       <div class="admin flex justify-between items-center">
         <img
@@ -44,7 +44,7 @@
           <span
             class="absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-red-400"
           ></span>
-          <!-- <div
+          <div
             class="!hidden absolute right-0 !w-[12rem] ui vertical menu !font-Rubik"
             id="menu"
           >
@@ -100,7 +100,7 @@
               </svg>
               <span class="pl-4"> Гарах</span>
             </span>
-          </div> -->
+          </div>
         </div>
       </div>
       <!-- Top -->
@@ -155,10 +155,20 @@
               </svg>
             </div>
             <button
-              id="modal"
+              id="modal1"
               type="button"
-              class="px-4"
+              class="px-4 disabled:opacity-50 disabled:pointer-events-none"
+              data-hs-overlay="#hs-overlay-example"
+              disabled
+            >
+              Үг нэмэх
+            </button>
+            <button
+              id="modal2"
+              type="button"
+              class="px-4 hidden disabled:opacity-50 disabled:pointer-events-none"
               data-hs-overlay="#hs-overlay-bottom"
+              disabled
             >
               Үг нэмэх
             </button>
@@ -243,6 +253,66 @@
         </div>
       </div>
       <!-- End Toast -->
+
+      <div
+        id="hs-overlay-example"
+        class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-[80] bg-white border-e dark:bg-gray-800 dark:border-gray-700"
+        tabindex="-1"
+      >
+        <div class="flex flex-col justify-center space-y-6 p-4">
+          <span class="text-center text-2xl">Шинэ үг нэмэх</span>
+
+          <form class="ui form flex flex-col justify-center items-center">
+            <div class="flex flex-col w-full">
+              <div class="field">
+                <label class="!font-medium">Шинэ үг</label>
+                <input type="text" name="name1" id="nameText" />
+              </div>
+              <div class="field">
+                <label class="!font-medium">Орчуулга</label>
+                <input type="text" name="name2" id="translateText" />
+              </div>
+              <div class="field">
+                <label class="!font-medium">Хичээл сонгох</label>
+                <div class="ui fluid selection dropdown">
+                  <input type="hidden" name="gender" id="wer" />
+                  <div class="default text selectVale">Хичээл сонгох...</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="1">ном</div>
+                    <div class="item" data-value="0">users</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui submit m-4">
+              <button
+                type="button"
+                class="active:translate-y-1 ease-in duration-75 py-2 px-2 w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              >
+                <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+                  <svg
+                    class="flex-shrink-0 w-8 h-8"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <div class="pr-16 text-lg">үг нэмэх</div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
       <div
         id="hs-overlay-bottom"
