@@ -25,7 +25,6 @@ $("#gLogin").on("click", function () {
         $("#toastLogin").removeClass("hidden");
       }
       $("#toast1").addClass("hidden");
-
       setTimeout(function () {
         $("#toastLogin").addClass("hidden");
       }, 3000);
