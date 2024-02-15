@@ -623,10 +623,6 @@ video {
   bottom: 0px;
 }
 
-.bottom-2{
-  bottom: 0.5rem;
-}
-
 .bottom-full{
   bottom: 100%;
 }
@@ -657,10 +653,6 @@ video {
 
 .top-full{
   top: 100%;
-}
-
-.top-2{
-  top: 0.5rem;
 }
 
 .z-\[1\]{

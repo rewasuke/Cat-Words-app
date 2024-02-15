@@ -27,7 +27,7 @@ $("#gLogin").on("click", function () {
       $("#toast1").addClass("hidden");
       setTimeout(function () {
         $("#toastLogin").addClass("hidden");
-      }, 3000);
+      }, 2000);
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -54,13 +54,13 @@ $("#toast1").on("click", function () {
   $("#toastModal").removeClass("hidden");
   setTimeout(function () {
     $("#toastModal").addClass("hidden");
-  }, 3000);
+  }, 1000);
 });
 $("#exit").on("click", function () {
   $("#toastOut").removeClass("hidden");
   setTimeout(function () {
     $("#toastOut").addClass("hidden");
-  }, 3000);
+  }, 2000);
 });
 
 $("#select").dropdown();
@@ -114,7 +114,15 @@ $("#next").on("click", function () {
     $("#toastInit").removeClass("hidden");
     setTimeout(function () {
       $("#toastInit").addClass("hidden");
-    }, 3000);
+    }, 1000);
+  }
+});
+$("#translate").on("click", function () {
+  if ($("#select option:selected").val() === "") {
+    $("#toastInit").removeClass("hidden");
+    setTimeout(function () {
+      $("#toastInit").addClass("hidden");
+    }, 1000);
   }
 });
 
