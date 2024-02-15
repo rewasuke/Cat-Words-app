@@ -110,10 +110,12 @@ $(window).resize(function () {
 $(".item").addClass("!text-sm");
 
 $("#next").on("click", function () {
-  $("#toastInit").removeClass("hidden");
-  setTimeout(function () {
-    $("#toastInit").addClass("hidden");
-  }, 3000);
+  if ($("#select option:selected").val() === "") {
+    $("#toastInit").removeClass("hidden");
+    setTimeout(function () {
+      $("#toastInit").addClass("hidden");
+    }, 3000);
+  }
 });
 
 $("#select").change(function () {
