@@ -54,7 +54,7 @@ $("#toast1").on("click", function () {
   $("#toastModal").removeClass("hidden");
   setTimeout(function () {
     $("#toastModal").addClass("hidden");
-  }, 1000);
+  }, 2000);
 });
 $("#exit").on("click", function () {
   $("#toastOut").removeClass("hidden");
@@ -109,21 +109,20 @@ $(window).resize(function () {
 
 $(".item").addClass("!text-sm");
 
-$("#next").on("click", function () {
+function toast() {
   if ($("#select option:selected").val() === "") {
     $("#toastInit").removeClass("hidden");
     setTimeout(function () {
       $("#toastInit").addClass("hidden");
-    }, 1000);
+    }, 2000);
   }
+}
+
+$("#next").on("click", function () {
+  toast();
 });
 $("#translate").on("click", function () {
-  if ($("#select option:selected").val() === "") {
-    $("#toastInit").removeClass("hidden");
-    setTimeout(function () {
-      $("#toastInit").addClass("hidden");
-    }, 1000);
-  }
+  toast();
 });
 
 $("#select").change(function () {
@@ -149,13 +148,6 @@ $("#select").change(function () {
   const current2 = document.querySelector(".tran");
 
   current2.classList.add("hidden");
-  btnHold.addEventListener("click", function () {
-    html = `<span class=" text-2xl translate">$rename2$</span>`;
-    html = html.replace("$rename2$", translate);
-    current2.innerHTML = html;
-
-    current2.classList.remove("hidden");
-  });
 
   btnNext.addEventListener("click", function () {
     db.collection(sukeValue).onSnapshot(function (querySnapshot) {
@@ -173,11 +165,19 @@ $("#select").change(function () {
       current.innerHTML = html;
 
       res = books.findIndex(result);
+
       function result(value) {
         return value === randomItem;
       }
       translate = books[res].Translate;
     });
+  });
+
+  btnHold.addEventListener("click", function () {
+    html2 = `<span class=" text-2xl translate">$rename2$</span>`;
+    html2 = html2.replace("$rename2$", translate);
+    current2.innerHTML = html2;
+    current2.classList.remove("hidden");
   });
 });
 
