@@ -21,7 +21,6 @@ $("#gLogin").on("click", function () {
           </span>`
         );
         $("#modal1").removeAttr("disabled");
-        $("#modal2").removeAttr("disabled");
         $("#toastLogin").removeClass("hidden");
       }
       $("#toast1").addClass("hidden");
@@ -44,7 +43,6 @@ $("#logout").on("click", function () {
       $("#adminName").addClass("!hidden");
       $("#logout").addClass("!hidden");
       $("#modal1").attr("disabled", true);
-      $("#modal2").attr("disabled", true);
       $("#toast1").removeClass("hidden");
     })
     .catch((error) => {});
@@ -56,6 +54,7 @@ $("#toast1").on("click", function () {
     $("#toastModal").addClass("hidden");
   }, 2000);
 });
+
 $("#exit").on("click", function () {
   $("#toastOut").removeClass("hidden");
   setTimeout(function () {
@@ -63,53 +62,53 @@ $("#exit").on("click", function () {
   }, 2000);
 });
 
-$("#select").dropdown();
-
-$(".ui.dropdown").dropdown();
-
 $(".ui.form").form({
   fields: {
-    gender: "empty",
-    name1: "empty",
-    name2: "empty",
+    field1: "empty",
+    field2: "empty",
   },
 });
-$("#wer").change(() => {
-  const selectVale = $(".selectVale").text();
 
-  const nameText = $("#nameText").val();
-  console.log(nameText);
-  const translateText = $("#translateText").val();
-  console.log(translateText);
-  // Хэрэглэгчээс авсан датаг Firebase-д хадгалах
-  db.collection(selectVale)
-    .doc(nameText)
-    .set({
-      Name: nameText,
-      Translate: translateText,
-    })
-    .then(() => {
-      // getform.reset();
-    })
-    .catch((error) => {
-      console.error("Error writing document: ", error);
-    });
+$("#select").dropdown();
+$(".dropdown").dropdown();
+
+var term55;
+$(".myReset").change(function (e) {
+  e.preventDefault;
+  if (!e) var e = window.e;
+  term55 = $(this).find(":selected").val();
 });
 
-// jQuery with CSS Media Queries
-$(window).resize(function () {
-  if ($("#body").width() <= 640) {
-    $("#modal2").removeClass("hidden");
-    $("#modal1").addClass("hidden");
+const sbtn = document.getElementById("save_btn");
+sbtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const form2 = document.querySelector(".save_form2");
+  const nameText = document.querySelector(".name_field").value;
+  const translateText = document.querySelector(".translate_field").value;
+
+  if (nameText === "") {
   } else {
-    $("#modal1").removeClass("hidden");
-    $("#modal2").addClass("hidden");
+    console.log("kk");
+    // Хэрэглэгчээс авсан датаг Firebase-д хадгалах
+    db.collection(term55)
+      .doc(nameText)
+      .set({
+        Name: nameText,
+        Translate: translateText,
+      })
+      .then(() => {
+        $(".ui.dropdown").dropdown("clear");
+        form2.reset();
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
   }
 });
 
 $(".item").addClass("!text-sm");
 
-function toast() {
+function toastCheck() {
   if ($("#select option:selected").val() === "") {
     $("#toastInit").removeClass("hidden");
     setTimeout(function () {
@@ -117,12 +116,11 @@ function toast() {
     }, 2000);
   }
 }
-
 $("#next").on("click", function () {
-  toast();
+  toastCheck();
 });
-$("#translate").on("click", function () {
-  toast();
+$("#orchuulga").on("click", function () {
+  toastCheck();
 });
 
 $("#select").change(function () {
@@ -130,7 +128,6 @@ $("#select").change(function () {
   var $option = $(this).find("option:selected");
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
-  console.log(sukeValue);
 
   if (sukeValue) {
     $(".mainName").replaceWith(
@@ -165,19 +162,18 @@ $("#select").change(function () {
       current.innerHTML = html;
 
       res = books.findIndex(result);
-
       function result(value) {
         return value === randomItem;
       }
       translate = books[res].Translate;
-    });
-  });
+      btnHold.addEventListener("click", function () {
+        html = `<span class=" text-2xl translate">$rename2$</span>`;
+        html = html.replace("$rename2$", translate);
+        current2.innerHTML = html;
 
-  btnHold.addEventListener("click", function () {
-    html2 = `<span class=" text-2xl translate">$rename2$</span>`;
-    html2 = html2.replace("$rename2$", translate);
-    current2.innerHTML = html2;
-    current2.classList.remove("hidden");
+        current2.classList.remove("hidden");
+      });
+    });
   });
 });
 

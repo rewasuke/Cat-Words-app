@@ -110,7 +110,6 @@
           <option value="">Хичээл сонгох...</option>
           <option value="Топик">Топик</option>
           <option value="Дүрэм">Дүрэм</option>
-          <option value="users">users</option>
           <option value="Хичээл 1">Хичээл 1</option>
           <option value="Хичээл 2">Хичээл 2</option>
           <option value="Хичээл 3">Хичээл 3</option>
@@ -175,19 +174,11 @@
             >
               Үг нэмэх
             </button>
-            <button
-              id="modal2"
-              type="button"
-              class="px-4 hidden disabled:opacity-50 disabled:pointer-events-none"
-              data-hs-overlay="#hs-overlay-bottom"
-              disabled
-            >
-              Үг нэмэх
-            </button>
+            <!-- disabled:opacity-50 disabled:pointer-events-none -->
           </div>
           <div
-            id="translate"
-            class="disabled active:translate-y-1 ease-in duration-75 hold flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            id="orchuulga"
+            class="active:translate-y-1 ease-in duration-75 hold flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >
             <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
               <svg
@@ -243,7 +234,7 @@
       <!-- Toast -->
       <div
         id="toastModal"
-        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-0 w-72 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
+        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
         role="alert"
       >
         <div class="flex p-4">
@@ -270,7 +261,7 @@
       </div>
       <div
         id="toastLogin"
-        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-0 w-72 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
+        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
         role="alert"
       >
         <div class="flex p-4">
@@ -297,7 +288,7 @@
       </div>
       <div
         id="toastInit"
-        class="hidden absolute content-center start-1/2 -translate-x-1/2 right-0 top-0 w-72 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
+        class="hidden absolute content-center start-1/2 -translate-x-1/2 right-0 top-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
         role="alert"
       >
         <div class="flex p-4">
@@ -324,7 +315,7 @@
       </div>
       <div
         id="toastOut"
-        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-0 w-72 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
+        class="hidden absolute start-1/2 -translate-x-1/2 right-0 top-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700"
         role="alert"
       >
         <div class="flex p-4">
@@ -350,142 +341,159 @@
         </div>
       </div>
       <!-- End Toast -->
-
       <div
-        id="hs-overlay-example"
-        class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-[80] bg-white border-e dark:bg-gray-800 dark:border-gray-700"
-        tabindex="-1"
+      id="hs-overlay-example" class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-[80] bg-white border-e dark:bg-gray-800 dark:border-gray-700" tabindex="-1"
       >
-        <div class="flex flex-col justify-center space-y-6 p-4">
-          <span class="text-center text-2xl">Шинэ үг нэмэх</span>
+      <div class="flex flex-col justify-center space-y-6 py-4 px-6">
+        <span class="text-center text-3xl font-Start">Шинэ үг нэмэх</span>
+        <form class="ui form save_form2">
+          <div class="field">
+            <label class="!font-medium">Шинэ үг</label>
+            <input
+              class="name_field"
+              type="text"
+              name="field1"
+              placeholder="Шинэ үг..."
+            />
+          </div>
+          <div class="field">
+            <label class="!font-medium">Орчуулга</label>
+            <input
+              class="translate_field"
+              type="text"
+              name="field2"
+              placeholder="Орчуулага..."
+            />
+          </div>
 
-          <form class="ui form flex flex-col justify-center items-center">
-            <div class="flex flex-col w-full">
-              <div class="field">
-                <label class="!font-medium">Шинэ үг</label>
-                <input type="text" name="name1" id="nameText" />
-              </div>
-              <div class="field">
-                <label class="!font-medium">Орчуулга</label>
-                <input type="text" name="name2" id="translateText" />
-              </div>
-              <div class="field">
-                <label class="!font-medium">Хичээл сонгох</label>
-                <div class="ui fluid selection dropdown">
-                  <input type="hidden" name="gender" id="wer" />
-                  <div class="default text selectVale">Хичээл сонгох...</div>
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <div class="item" data-value="0">Топик</div>
-                    <div class="item" data-value="0">Дүрэм</div>
-                    <div class="item" data-value="0">users</div>
-                    <div class="item" data-value="0">Хичээл 1</div>
-                    <div class="item" data-value="0">Хичээл 2</div>
-                    <div class="item" data-value="0">Хичээл 3</div>
-                    <div class="item" data-value="0">Хичээл 4</div>
-                    <div class="item" data-value="0">Хичээл 5</div>
-                    <div class="item" data-value="0">Хичээл 6</div>
-                    <div class="item" data-value="0">Хичээл 7</div>
-                    <div class="item" data-value="0">Хичээл 8</div>
-                    <div class="item" data-value="0">Хичээл 9</div>
-                    <div class="item" data-value="0">Хичээл 10</div>
-                    <div class="item" data-value="0">Хичээл 11</div>
-                    <div class="item" data-value="0">Хичээл 12</div>
-                    <div class="item" data-value="0">Хичээл 13</div>
-                    <div class="item" data-value="0">Хичээл 14</div>
-                    <div class="item" data-value="0">Хичээл 15</div>
-                  </div>
-                </div>
-              </div>
+          <div class="flex flex-col space-y-4">
+            <div class="field" name="field3">
+              <label class="!font-medium">Хичээл сонгох</label>
+              <select class="text-sm !min-w-32 ui dropdown myReset">
+                <option value="">Хичээл сонгох...</option>
+                <option value="Топик">Топик</option>
+                <option value="Дүрэм">Дүрэм</option>
+                <option value="Хичээл 1">Хичээл 1</option>
+                <option value="Хичээл 2">Хичээл 2</option>
+                <option value="Хичээл 3">Хичээл 3</option>
+                <option value="Хичээл 4">Хичээл 4</option>
+                <option value="Хичээл 5">Хичээл 5</option>
+                <option value="Хичээл 6">Хичээл 6</option>
+                <option value="Хичээл 7">Хичээл 7</option>
+                <option value="Хичээл 8">Хичээл 8</option>
+                <option value="Хичээл 9">Хичээл 9</option>
+                <option value="Хичээл 10">Хичээл 10</option>
+                <option value="Хичээл 11">Хичээл 11</option>
+                <option value="Хичээл 12">Хичээл 12</option>
+                <option value="Хичээл 13">Хичээл 13</option>
+                <option value="Хичээл 14">Хичээл 14</option>
+                <option value="Хичээл 15">Хичээл 15</option>
+              </select>
             </div>
-            <div class="ui submit m-4">
-              <button
-                type="button"
-                class="active:translate-y-1 ease-in duration-75 py-2 px-2 w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              >
-                <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
-                  <svg
-                    class="flex-shrink-0 w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </div>
-                <div class="pr-16 text-lg">үг нэмэх</div>
-              </button>
-            </div>
-          </form>
-        </div>
+            <button
+              id="save_btn"
+              class="active:translate-y-1 ease-in duration-75 w-full py-2 px-2 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            >
+              <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+                <svg
+                  class="flex-shrink-0 w-8 h-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+              <div class="!pr-16 text-lg">үг нэмэх</div>
+            </button>
+          </div>
+        </form>
       </div>
 
-      <div
+      <!-- <div
         id="hs-overlay-bottom"
         class="hidden rounded-t-3xl space-y-4 hs-overlay hs-overlay-open:translate-y-0 translate-y-full fixed bottom-0 inset-x-0 transition-all duration-300 transform p-6 h-3/6 w-full z-[80] bg-white border-b dark:bg-gray-800 dark:border-gray-700"
         tabindex="-1"
       >
-        <div class="flex flex-col justify-center space-y-6">
-          <span class="text-center text-2xl">Шинэ үг нэмэх</span>
+        <div class="flex flex-col justify-center space-y-6 p-4">
+          <span class="text-center text-2xl font-Start">Шинэ үг нэмэх</span>
 
-          <form class="ui form flex flex-col justify-center items-center">
-            <div class="flex flex-col w-full">
-              <div class="field">
-                <label class="!font-medium">Шинэ үг</label>
-                <input type="text" name="name1" id="nameText" />
-              </div>
-              <div class="field">
-                <label class="!font-medium">Орчуулга</label>
-                <input type="text" name="name2" id="translateText" />
-              </div>
-              <div class="field">
-                <label class="!font-medium">Хичээл сонгох</label>
-                <div class="ui fluid selection dropdown">
-                  <input type="hidden" name="gender" id="wer" />
-                  <div class="default text selectVale">Хичээл сонгох...</div>
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                    <div class="item" data-value="1">ном</div>
-                    <div class="item" data-value="0">users</div>
-                  </div>
-                </div>
-              </div>
+          <form class="ui form save_form2">
+            <div class="field">
+              <label class="!font-medium">Шинэ үг</label>
+              <input
+                class="name_field"
+                type="text"
+                name="field1"
+                placeholder="Шинэ үг..."
+              />
             </div>
-            <div class="ui submit mt-4">
-              <button
-                type="button"
-                class="active:translate-y-1 ease-in duration-75 py-2 px-2 w-80 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              >
-                <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
-                  <svg
-                    class="flex-shrink-0 w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </div>
-                <div class="pr-16 text-lg">үг нэмэх</div>
-              </button>
+            <div class="field">
+              <label class="!font-medium">Орчуулга</label>
+              <input
+                class="translate_field"
+                type="text"
+                name="field2"
+                placeholder="Орчуулага..."
+              />
             </div>
+
+            <div class="field">
+              <label class="!font-medium">Хичээл сонгох</label>
+              <select class="text-sm !min-w-32 ui dropdown myReset">
+                <option value="">Хичээл сонгох...</option>
+                <option value="Топик">Топик</option>
+                <option value="Дүрэм">Дүрэм</option>
+                <option value="Хичээл 1">Хичээл 1</option>
+                <option value="Хичээл 2">Хичээл 2</option>
+                <option value="Хичээл 3">Хичээл 3</option>
+                <option value="Хичээл 4">Хичээл 4</option>
+                <option value="Хичээл 5">Хичээл 5</option>
+                <option value="Хичээл 6">Хичээл 6</option>
+                <option value="Хичээл 7">Хичээл 7</option>
+                <option value="Хичээл 8">Хичээл 8</option>
+                <option value="Хичээл 9">Хичээл 9</option>
+                <option value="Хичээл 10">Хичээл 10</option>
+                <option value="Хичээл 11">Хичээл 11</option>
+                <option value="Хичээл 12">Хичээл 12</option>
+                <option value="Хичээл 13">Хичээл 13</option>
+                <option value="Хичээл 14">Хичээл 14</option>
+                <option value="Хичээл 15">Хичээл 15</option>
+              </select>
+            </div>
+            <button
+              id="save_btn"
+              class="active:translate-y-1 ease-in duration-75 w-full py-2 px-2 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            >
+              <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+                <svg
+                  class="flex-shrink-0 w-8 h-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+              <div class="!pr-14 text-lg">үг нэмэх</div>
+            </button>
           </form>
         </div>
-      </div>
+      </div> -->
     </main>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
