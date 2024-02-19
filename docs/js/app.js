@@ -129,15 +129,15 @@ $("#select").change(function () {
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
 
-  if (sukeValue) {
-    $(".mainName").replaceWith(
-      `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
-    );
-    $(".mainSub").replaceWith(
-      `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд </span>`
-    );
-  }
-
+  // if (sukeValue) {
+  //   $(".mainName").replaceWith(
+  //     `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
+  //   );
+  //   $(".mainSub").replaceWith(
+  //     `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд
+  //    </span>`
+  //   );
+  // }
   // Хэрэглэгчээс авсан датаг дэлгэцэнд гарах
   const current = document.querySelector(".word");
   const btnNext = document.querySelector(".next");
@@ -146,34 +146,69 @@ $("#select").change(function () {
 
   current2.classList.add("hidden");
 
-  btnNext.addEventListener("click", function () {
-    db.collection(sukeValue).onSnapshot(function (querySnapshot) {
-      let books = [];
-      querySnapshot.docChanges().forEach((change) => {
-        if (change.type === "added") {
-          books.push({ ...change.doc.data() });
-        }
-      });
-      let randomItem = books[Math.floor(Math.random() * books.length)];
-      let rename = randomItem.Name;
-      current2.classList.add("hidden");
-      html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
-      html = html.replace("$rename1$", rename);
-      current.innerHTML = html;
-
-      res = books.findIndex(result);
-      function result(value) {
-        return value === randomItem;
+  let books = [];
+  db.collection(sukeValue).onSnapshot(function (querySnapshot) {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === "added") {
+        books.push({ ...change.doc.data() });
       }
-      translate = books[res].Translate;
-      btnHold.addEventListener("click", function () {
-        html = `<span class=" text-2xl translate">$rename2$</span>`;
-        html = html.replace("$rename2$", translate);
-        current2.innerHTML = html;
 
-        current2.classList.remove("hidden");
-      });
+      if (sukeValue) {
+        $(".mainName").replaceWith(
+          `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
+        );
+        $(".mainSub").replaceWith(
+          `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд
+          /${books.length}</span>`
+        );
+      }
     });
+    // // Санамсаргүй үгийг авах
+    // let randomItem = books[Math.floor(Math.random() * books.length)];
+    // let rename = randomItem.Name;
+
+    // current2.classList.add("hidden");
+    // html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
+    // html = html.replace("$rename1$", rename);
+    // current.innerHTML = html;
+
+    // res = books.findIndex(result);
+    // function result(value) {
+    //   return value === randomItem;
+    // }
+    // translate = books[res].Translate;
+  });
+
+  // Товч ашиглан утгыг авах
+  btnNext.addEventListener("click", function () {
+    next(books);
+    current2.classList.add("hidden");
+    html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
+    html = html.replace("$rename1$", rename);
+    current.innerHTML = html;
+  });
+
+  let index = 0;
+  let rename;
+  function next(books) {
+    if (index < books.length) {
+      rename = books[index].Name;
+      index++;
+    } else {
+      index = 0;
+      rename = books[index].Name;
+      index++;
+    }
+  }
+
+  btnHold.addEventListener("click", function () {
+    translate = books[index - 1].Translate;
+
+    html = `<span class=" text-2xl translate">$rename2$</span>`;
+    html = html.replace("$rename2$", translate);
+    current2.innerHTML = html;
+
+    current2.classList.remove("hidden");
   });
 });
 
