@@ -129,15 +129,16 @@ $("#select").change(function () {
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
 
-  // if (sukeValue) {
-  //   $(".mainName").replaceWith(
-  //     `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
-  //   );
-  //   $(".mainSub").replaceWith(
-  //     `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд
-  //    </span>`
-  //   );
-  // }
+  if (sukeValue) {
+    $(".mainName").replaceWith(
+      `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
+    );
+    $(".mainSub").replaceWith(
+      `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд
+   </span>`
+    );
+  }
+
   // Хэрэглэгчээс авсан датаг дэлгэцэнд гарах
   const current = document.querySelector(".word");
   const btnNext = document.querySelector(".next");
@@ -151,16 +152,6 @@ $("#select").change(function () {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === "added") {
         books.push({ ...change.doc.data() });
-      }
-
-      if (sukeValue) {
-        $(".mainName").replaceWith(
-          `<span class="mainName text-2xl uppercase">${sukeValue} </span>`
-        );
-        $(".mainSub").replaceWith(
-          `<span class="mainSub text-xs text-gray-400">${sukeValue} -н цээжлэх үгнүүд
-          /${books.length}</span>`
-        );
       }
     });
     // // Санамсаргүй үгийг авах
@@ -198,6 +189,14 @@ $("#select").change(function () {
       index = 0;
       rename = books[index].Name;
       index++;
+    }
+    if (sukeValue) {
+      $(".mainSub").replaceWith(
+        `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+     <p class="inline-block w-4 text-right ">${index}</p> /
+     <p class="inline-block w-4 text-right ">${books.length}</p>
+     </span>`
+      );
     }
   }
 
