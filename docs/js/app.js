@@ -10,10 +10,14 @@ $("#gLogin").on("click", function () {
       var credential = result.credential;
       var user = result.user;
       var displayName = user.displayName;
+      var photoURL = user.photoURL;
+      console.log(photoURL);
       if (user.uid === "JVcxs3keNJMnUjfa0EAQHCyHmwN2") {
         $("#gLogin").addClass("!hidden");
         $("#logout").removeClass("!hidden");
         $("#adminName").removeClass("!hidden");
+        $(".profile").attr("src", photoURL);
+        $(".dot").addClass("bg-teal-400");
         $("#adminName").replaceWith(
           `<span class="item " id="adminName">
           <span class="">Admin:</span>
@@ -44,6 +48,8 @@ $("#logout").on("click", function () {
       $("#logout").addClass("!hidden");
       $("#modal1").attr("disabled", true);
       $("#toast1").removeClass("hidden");
+      $(".profile").attr("src", "./assests/man1.png");
+      $(".dot").removeClass("bg-teal-400");
     })
     .catch((error) => {});
 });
@@ -193,8 +199,7 @@ $("#select").change(function () {
     if (sukeValue) {
       $(".mainSub").replaceWith(
         `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
-     <p class="inline-block w-4 text-right ">${index}</p> /
-     <p class="inline-block w-4 text-right ">${books.length}</p>
+     <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
      </span>`
       );
     }
