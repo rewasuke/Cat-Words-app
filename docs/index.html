@@ -36,7 +36,7 @@
         />
         <div class="relative leading-[0.5px]">
           <span class="font-Start text-2xl uppercase">Cat Words</span>
-          <div class="absolute right-0 text-[9px] font-medium text-gray-400 ">v1.15</div>
+          <div class="absolute right-0 text-[9px] font-medium text-gray-400 ">v1.16</div>
         </div>
         <div class="relative inline-block" id="admin">
           <img
@@ -93,7 +93,7 @@
                 style="
                   fill: rgba(123, 123, 123, 1);
                   transform: scaleY(-1);
-                  msfilter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+                 
                 "
               >
                 <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
@@ -139,9 +139,12 @@
 
       <!-- Word -->
       <div
-        class="flex flex-col justify-center items-center h-3/6 rounded-3xl bg-[#D6EBEB] my-3 "
+        class="flex flex-col justify-center items-center h-3/6 rounded-3xl bg-[#D6EBEB] my-3 overflow-hidden"
       >
-        <div class="word font-Start text-6xl">Бэлэн үү</div>
+        <div class=" font-Start text-6xl">
+          <span class="word">Бэлэн үү</span>
+          <img class="picture hidden h-full w-96 object-cover " src="#" alt="">
+        </div>
         <div class="tran hidden absolute mt-40 lowercase"></div>
       </div>
       <!-- End Word -->
@@ -501,108 +504,24 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
 
     <script>
-      const _0x25f8b0 = _0x3ee6;
-      function _0x3ee6(_0x254b64, _0x67eb7) {
-        const _0x92b818 = _0x1387();
-        return (
-          (_0x3ee6 = function (_0x5a9939, _0x355667) {
-            _0x5a9939 = _0x5a9939 - (-0x91b + -0xfe5 + 0x1a4f);
-            let _0x4d59d9 = _0x92b818[_0x5a9939];
-            return _0x4d59d9;
-          }),
-          _0x3ee6(_0x254b64, _0x67eb7)
-        );
-      }
-      function _0x1387() {
-        const _0x4b0c57 = [
-          "firestore",
-          "AIzaSyA_hn",
-          "ebaseio.co",
-          "baseapp.co",
-          "saver",
-          "initialize",
-          "510iqyAUu",
-          "https://ts",
-          "ver-defaul",
-          "auth",
-          "198872yrpBxm",
-          "54607YGzKQF",
-          "NKbv-nBRNv",
-          "Kmgv6Vg-xX",
-          "14746mDsleh",
-          "saver.fire",
-          "t-rtdb.fir",
-          "App",
-          "9759560vYNUDC",
-          "782802eNdrEy",
-          "13553001dFwdFV",
-          "tsks-link-",
-          "468qQszYc",
-          "6fcPX8nYM",
-          "430yEMhAO",
-          "ks-link-sa",
-          "75848vgACXl",
-        ];
-        _0x1387 = function () {
-          return _0x4b0c57;
-        };
-        return _0x1387();
-      }
-      (function (_0x746148, _0x55ac6e) {
-        const _0x432f25 = _0x3ee6,
-          _0x1ab436 = _0x746148();
-        while (!![]) {
-          try {
-            const _0x50dbd6 =
-              -parseInt(_0x432f25(0x169)) /
-                (-0xa * -0x2ce + 0x1e * -0x109 + 0x303) +
-              (-parseInt(_0x432f25(0x164)) /
-                (-0x258d + 0x23 * -0x11 + 0x7fa * 0x5)) *
-                (-parseInt(_0x432f25(0x151)) /
-                  (0x1253 + -0x12d3 * 0x1 + 0x1 * 0x83)) +
-              (parseInt(_0x432f25(0x155)) /
-                (-0x164 * 0x11 + -0x1e05 + 0x35ad)) *
-                (parseInt(_0x432f25(0x153)) /
-                  (-0x174b * -0x1 + -0xb * -0x92 + -0x7a * 0x3e)) +
-              (parseInt(_0x432f25(0x15c)) /
-                (0x2af * 0x4 + 0x5c9 * 0x1 + -0x107f)) *
-                (-parseInt(_0x432f25(0x161)) /
-                  (0x1f7 * 0xa + 0xccb * 0x1 + -0x206a)) +
-              parseInt(_0x432f25(0x160)) /
-                (-0x2601 + 0x34 * -0xbf + -0x4cd5 * -0x1) +
-              -parseInt(_0x432f25(0x14f)) / (-0x19ab + 0x1f91 + -0x5dd) +
-              parseInt(_0x432f25(0x168)) / (-0x1220 + -0x1083 * 0x1 + 0x22ad);
-            if (_0x50dbd6 === _0x55ac6e) break;
-            else _0x1ab436["push"](_0x1ab436["shift"]());
-          } catch (_0x263e52) {
-            _0x1ab436["push"](_0x1ab436["shift"]());
-          }
-        }
-      })(_0x1387, -0x1c59d + 0x15799d * -0x1 + 0x23e941);
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       var firebaseConfig = {
-        apiKey:
-          _0x25f8b0(0x157) +
-          _0x25f8b0(0x162) +
-          _0x25f8b0(0x163) +
-          _0x25f8b0(0x152),
-        authDomain:
-          _0x25f8b0(0x150) + _0x25f8b0(0x165) + _0x25f8b0(0x159) + "m",
-        databaseURL:
-          _0x25f8b0(0x15d) +
-          _0x25f8b0(0x154) +
-          _0x25f8b0(0x15e) +
-          _0x25f8b0(0x166) +
-          _0x25f8b0(0x158) +
-          "m",
-        projectId: _0x25f8b0(0x150) + _0x25f8b0(0x15a),
+        apiKey: "AIzaSyA_hnNKbv-nBRNvKmgv6Vg-xX6fcPX8nYM",
+        authDomain: "tsks-link-saver.firebaseapp.com",
+        databaseURL: "https://tsks-link-saver-default-rtdb.firebaseio.com",
+        projectId: "tsks-link-saver",
+        storageBucket: 'gs://tsks-link-saver.appspot.com'
       };
-      firebase[_0x25f8b0(0x15b) + _0x25f8b0(0x167)](firebaseConfig);
-      const auth = firebase[_0x25f8b0(0x15f)](),
-        db = firebase[_0x25f8b0(0x156)]();
-    </script>
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
     <script src="./js/semantic.min.js"></script>
     <script src="./js/app.js"></script>

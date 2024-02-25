@@ -11,7 +11,6 @@ $("#gLogin").on("click", function () {
       var user = result.user;
       var displayName = user.displayName;
       var photoURL = user.photoURL;
-      console.log(photoURL);
       if (user.uid === "JVcxs3keNJMnUjfa0EAQHCyHmwN2") {
         $("#gLogin").addClass("!hidden");
         $("#logout").removeClass("!hidden");
@@ -94,7 +93,6 @@ sbtn.addEventListener("click", function (e) {
 
   if (nameText === "") {
   } else {
-    console.log("kk");
     // Хэрэглэгчээс авсан датаг Firebase-д хадгалах
     db.collection(term55)
       .doc(nameText)
@@ -153,6 +151,16 @@ $("#select").change(function () {
 
   current2.classList.add("hidden");
 
+  function getImage(num) {
+    let storage = firebase.storage();
+    var pathReference = storage.ref(`images/${num}.jpg`);
+
+    pathReference.getDownloadURL().then(function (url) {
+      var img = document.querySelector(".picture");
+      img.setAttribute("src", url);
+    });
+  }
+
   let books = [];
   db.collection(sukeValue).onSnapshot(function (querySnapshot) {
     querySnapshot.docChanges().forEach((change) => {
@@ -176,44 +184,82 @@ $("#select").change(function () {
     // translate = books[res].Translate;
   });
 
+  var texts = ["1", "2", "3"],
+    index1 = 0;
   // Товч ашиглан утгыг авах
+
   btnNext.addEventListener("click", function () {
+    $(".picture").addClass("hidden");
+
+    if (sukeValue === "Дүрэм") {
+      index1++;
+      index1 %= texts.length;
+      resultNum = texts[index1];
+
+      getImage(resultNum);
+
+      $(".picture").removeClass("hidden");
+    }
+    clickDown();
+  });
+
+  $(document).keydown(function (e) {
+    // CTRL A
+    if (e.which === 39) {
+      clickDown();
+    }
+  });
+  function clickDown() {
     next(books);
     current2.classList.add("hidden");
-    html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
-    html = html.replace("$rename1$", rename);
-    current.innerHTML = html;
-  });
+    if (rename === undefined) {
+      current.innerHTML = "";
+    } else {
+      html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
+      html = html.replace("$rename1$", rename);
+      current.innerHTML = html;
+    }
+  }
 
   let index = 0;
   let rename;
   function next(books) {
-    if (index < books.length) {
-      rename = books[index].Name;
-      index++;
-    } else {
-      index = 0;
-      rename = books[index].Name;
-      index++;
-    }
-    if (sukeValue) {
-      $(".mainSub").replaceWith(
-        `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
-     <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
-     </span>`
-      );
+    if (!books.length == 0) {
+      if (index < books.length) {
+        rename = books[index].Name;
+        index++;
+      } else {
+        index = 0;
+        rename = books[index].Name;
+        index++;
+      }
+      if (sukeValue) {
+        $(".mainSub").replaceWith(
+          `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+       <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
+       </span>`
+        );
+      }
     }
   }
 
   btnHold.addEventListener("click", function () {
-    translate = books[index - 1].Translate;
+    clickHold();
+    current2.classList.remove("hidden");
+  });
+  $(document).keydown(function (e) {
+    // CTRL A
+    if (e.which === 40) {
+      clickHold();
+    }
+  });
 
+  function clickHold() {
+    translate = books[index - 1].Translate;
     html = `<span class=" text-2xl translate">$rename2$</span>`;
     html = html.replace("$rename2$", translate);
     current2.innerHTML = html;
-
-    current2.classList.remove("hidden");
-  });
+  }
 });
 
 $("#admin").on("click", function () {
