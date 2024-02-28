@@ -151,16 +151,6 @@ $("#select").change(function () {
 
   current2.classList.add("hidden");
 
-  function getImage(num) {
-    let storage = firebase.storage();
-    var pathReference = storage.ref(`images/${num}.jpg`);
-
-    pathReference.getDownloadURL().then(function (url) {
-      var img = document.querySelector(".picture");
-      img.setAttribute("src", url);
-    });
-  }
-
   let books = [];
   db.collection(sukeValue).onSnapshot(function (querySnapshot) {
     querySnapshot.docChanges().forEach((change) => {
@@ -183,41 +173,31 @@ $("#select").change(function () {
     // }
     // translate = books[res].Translate;
   });
-
-  var texts = ["1", "2", "3"],
-    index1 = 0;
   // Товч ашиглан утгыг авах
 
   btnNext.addEventListener("click", function () {
-    $(".picture").addClass("hidden");
-
-    if (sukeValue === "Дүрэм") {
-      index1++;
-      index1 %= texts.length;
-      resultNum = texts[index1];
-
-      getImage(resultNum);
-
-      $(".picture").removeClass("hidden");
-    }
     clickDown();
   });
 
-  $(document).keydown(function (e) {
-    // CTRL A
-    if (e.which === 39) {
-      clickDown();
-    }
-  });
   function clickDown() {
     next(books);
     current2.classList.add("hidden");
     if (rename === undefined) {
       current.innerHTML = "";
+      $(".mainSub").replaceWith(
+        `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+         <p class="inline-block w-4 text-right ">0</p> /<p class="inline-block w-4 text-right ">0</p>
+         </span>`
+      );
     } else {
       html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
       html = html.replace("$rename1$", rename);
       current.innerHTML = html;
+      $(".mainSub").replaceWith(
+        `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+         <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
+         </span>`
+      );
     }
   }
 
@@ -233,33 +213,39 @@ $("#select").change(function () {
         rename = books[index].Name;
         index++;
       }
-      if (sukeValue) {
-        $(".mainSub").replaceWith(
-          `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
-       <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
-       </span>`
-        );
-      }
     }
   }
 
   btnHold.addEventListener("click", function () {
     clickHold();
-    current2.classList.remove("hidden");
   });
+
+  function clickHold() {
+    current2.classList.remove("hidden");
+    if (rename === undefined) {
+      current2.innerHTML = "";
+    } else {
+      translate = books[index - 1].Translate;
+      html = `<span class=" text-2xl translate">$rename2$</span>`;
+      html = html.replace("$rename2$", translate);
+      current2.innerHTML = html;
+    }
+  }
+
+  // Keyboard events
+
   $(document).keydown(function (e) {
-    // CTRL A
+    // ArrowDown
     if (e.which === 40) {
       clickHold();
     }
   });
-
-  function clickHold() {
-    translate = books[index - 1].Translate;
-    html = `<span class=" text-2xl translate">$rename2$</span>`;
-    html = html.replace("$rename2$", translate);
-    current2.innerHTML = html;
-  }
+  $(document).keydown(function (e) {
+    // ArrowRight
+    if (e.which === 39) {
+      clickDown();
+    }
+  });
 });
 
 $("#admin").on("click", function () {
