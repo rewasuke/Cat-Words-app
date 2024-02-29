@@ -614,11 +614,6 @@ video {
   inset: 0px;
 }
 
-.inset-x-0{
-  left: 0px;
-  right: 0px;
-}
-
 .bottom-0{
   bottom: 0px;
 }
@@ -671,6 +666,18 @@ video {
   z-index: 80;
 }
 
+.col-\[1\/_span_full\]{
+  grid-column: 1/ span full;
+}
+
+.row-\[2\/_span_1\]{
+  grid-row: 2/ span 1;
+}
+
+.row-\[4\/_span_1\]{
+  grid-row: 4/ span 1;
+}
+
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -681,9 +688,12 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.my-3{
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+.-mt-12{
+  margin-top: -3rem;
+}
+
+.-mt-8{
+  margin-top: -2rem;
 }
 
 .ms-3{
@@ -742,6 +752,10 @@ video {
   display: table;
 }
 
+.grid{
+  display: grid;
+}
+
 .contents{
   display: contents;
 }
@@ -775,10 +789,6 @@ video {
   height: 5rem;
 }
 
-.h-3\/6{
-  height: 50%;
-}
-
 .h-4{
   height: 1rem;
 }
@@ -789,6 +799,10 @@ video {
 
 .h-8{
   height: 2rem;
+}
+
+.h-\[18rem\]{
+  height: 18rem;
 }
 
 .h-\[2\.375rem\]{
@@ -835,10 +849,6 @@ video {
   width: 20rem;
 }
 
-.w-96{
-  width: 24rem;
-}
-
 .w-\[2\.375rem\]{
   width: 2.375rem;
 }
@@ -873,11 +883,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.translate-y-full{
-  --tw-translate-y: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -894,6 +899,14 @@ video {
 
 .resize{
   resize: both;
+}
+
+.auto-rows-\[minmax\(50px\2c _1fr\)\]{
+  grid-auto-rows: minmax(50px, 1fr);
+}
+
+.grid-cols-12{
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -922,6 +935,10 @@ video {
 
 .justify-between{
   justify-content: space-between;
+}
+
+.gap-3{
+  gap: 0.75rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -972,17 +989,8 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded-t-3xl{
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-}
-
 .border{
   border-width: 1px;
-}
-
-.border-b{
-  border-bottom-width: 1px;
 }
 
 .border-e{
@@ -1041,10 +1049,6 @@ video {
   padding: 1rem;
 }
 
-.p-6{
-  padding: 1.5rem;
-}
-
 .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1078,10 +1082,6 @@ video {
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.\!pr-14{
-  padding-right: 3.5rem !important;
 }
 
 .\!pr-16{
@@ -1328,18 +1328,8 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.open.hs-overlay-open\:translate-y-0{
-  --tw-translate-y: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .open .hs-overlay-open\:translate-x-0{
   --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.open .hs-overlay-open\:translate-y-0{
-  --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1391,4 +1381,39 @@ video {
 :is(.dark .dark\:focus\:ring-gray-600:focus){
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
+}
+
+@media (min-width: 768px){
+  .md\:col-\[1\/_span_8\]{
+    grid-column: 1/ span 8;
+  }
+
+  .md\:col-\[9\/_span_4\]{
+    grid-column: 9/ span 4;
+  }
+
+  .md\:row-\[1\/_span_1\]{
+    grid-row: 1/ span 1;
+  }
+
+  .md\:row-\[2\/_span_8\]{
+    grid-row: 2/ span 8;
+  }
+
+  .md\:row-\[4\/_span_1\]{
+    grid-row: 4/ span 1;
+  }
+
+  .md\:mx-8{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .md\:-mt-12{
+    margin-top: -3rem;
+  }
+
+  .md\:h-\[26rem\]{
+    height: 26rem;
+  }
 }
