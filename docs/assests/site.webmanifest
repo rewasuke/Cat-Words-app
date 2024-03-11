@@ -1,7 +1,7 @@
 {
   "name": "Cat words app",
   "short_name": "Cat words",
-  "start_url": "/",
+  "start_url": "/Cat-Words-app/",
   "icons": [
     {
       "src": "./cat.png",
