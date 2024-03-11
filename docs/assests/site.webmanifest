@@ -1,7 +1,7 @@
 {
   "name": "Cat words app",
   "short_name": "Cat words",
-  "start_url": "/Cat-Words-app/",
+  "start_url": "https://rewasuke.github.io/Cat-Words-app/",
   "icons": [
     {
       "src": "./cat.png",
