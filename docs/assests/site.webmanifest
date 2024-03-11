@@ -1,19 +1,39 @@
 {
   "name": "Cat words app",
   "short_name": "Cat words",
+  "description": "Үг цээжлэх апп",
   "icons": [
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "192x192",
+      "src": "/docs/assests/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/docs/assests/cat.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "id": "/?source=pwa",
+  "start_url": "https://rewasuke.github.io/Cat-Words-app/",
+  "scope": "/",
+  "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "How's the weather today?",
+      "short_name": "Today",
+      "description": "View weather information for today",
+      "url": "https://rewasuke.github.io/Cat-Words-app/",
+      "icons": [{ "src": "/docs/assests/man2.png", "sizes": "512x512" }]
+    },
+    {
+      "name": "How's the weather tomorrow?",
+      "short_name": "Tomorrow",
+      "description": "View weather information for tomorrow",
+      "url": "https://rewasuke.github.io/Cat-Words-app/",
+      "icons": [{ "src": "/docs/assests/man.png", "sizes": "512x512" }]
+    }
+  ]
 }

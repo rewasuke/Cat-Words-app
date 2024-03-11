@@ -27,234 +27,226 @@
     <link rel="stylesheet" href="./css/bundle.css" />
   </head>
   <body id="body" class="flex justify-center font-Rubik select-none">
-    <main
-      class="content relative grid auto-rows-[minmax(50px,_1fr)] grid-cols-12 gap-3 md:mx-8"
-    >
-      <!-- Top -->
-      <div
-        class="col-[1/_span_full] md:col-[9/_span_4] md:row-[1/_span_1] mt-6"
-      >
-        <div class="admin flex justify-between items-center">
+    <main class="flex flex-col justify-center w-96 my-2">
+      <div class="admin flex justify-between items-center">
+        <img
+          class="w-12 active:translate-y-1 ease-in duration-75"
+          src="./assests/cat.png"
+          alt=""
+        />
+        <div class="relative leading-[0.5px]">
+          <span class="font-Start text-2xl uppercase">Cat Words</span>
+          <div class="absolute right-0 text-[9px] font-medium text-gray-400">
+            v1.20
+          </div>
+        </div>
+        <div class="relative inline-block" id="admin">
           <img
-            class="w-12 active:translate-y-1 ease-in duration-75"
-            src="./assests/cat.png"
-            alt=""
+            class="profile inline-block h-[2.375rem] w-[2.375rem] rounded-full object-cover"
+            src="./assests/man1.png"
+            alt="Image Description"
           />
-          <div class="relative leading-[0.5px]">
-            <span class="font-Start text-2xl uppercase">Cat Words</span>
-            <div class="absolute right-0 text-[9px] font-medium text-gray-400">
-              v1.18
-            </div>
-          </div>
-          <div class="relative inline-block" id="admin">
-            <img
-              class="profile inline-block h-[2.375rem] w-[2.375rem] rounded-full object-cover"
-              src="./assests/man1.png"
-              alt="Image Description"
-            />
+          <span
+            class="dot absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-gray-400"
+          ></span>
+          <div
+            class="!hidden absolute right-0 !w-[12rem] ui vertical menu !font-Rubik z-10"
+            id="menu"
+          >
             <span
-              class="dot absolute bottom-0 end-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-gray-400"
-            ></span>
-            <div
-              class="!hidden absolute right-0 !w-[12rem] ui vertical menu !font-Rubik z-10"
-              id="menu"
+              class="!flex justify-between items-center text-nowrap link item login"
+              id="gLogin"
             >
-              <span
-                class="!flex justify-between items-center text-nowrap link item login"
-                id="gLogin"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <path
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                    fill="#4285F4"
-                  />
-                  <path
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                    fill="#34A853"
-                  />
-                  <path
-                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                    fill="#FBBC05"
-                  />
-                  <path
-                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                    fill="#EA4335"
-                  />
-                  <path d="M1 1h22v22H1z" fill="none" />
-                </svg>
-                <span class="pl-2"> google-ээр нэвтрэх</span>
-              </span>
-              <span class="item !hidden !text-amber-500" id="adminName"
-                >Нэвтрэх</span
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335"
+                />
+                <path d="M1 1h22v22H1z" fill="none" />
+              </svg>
+              <span class="pl-2"> google-ээр нэвтрэх</span>
+            </span>
+            <span class="item !hidden !text-amber-500" id="adminName"
+              >Нэвтрэх</span
+            >
+            <span class="!hidden !flex items-center link item" id="logout">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style="fill: rgba(123, 123, 123, 1); transform: scaleY(-1)"
               >
-              <span class="!hidden !flex items-center link item" id="logout">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  style="fill: rgba(123, 123, 123, 1); transform: scaleY(-1)"
-                >
-                  <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
-                  <path
-                    d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"
-                  ></path>
-                </svg>
-                <span id="exit" class="pl-4 text-red-400"> Гарах</span>
-              </span>
-            </div>
+                <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                <path
+                  d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"
+                ></path>
+              </svg>
+              <span id="exit" class="pl-4 text-red-400"> Гарах</span>
+            </span>
           </div>
         </div>
-
-        <div class="top h-20 flex justify-between items-center">
-          <!-- Select -->
-          <select class="text-sm !min-w-32 ui dropdown" id="select">
-            <option value="">Хичээл сонгох...</option>
-            <option value="Топик">Топик</option>
-            <option value="Дүрэм">Дүрэм</option>
-            <option value="Хичээл 1">Хичээл 1</option>
-            <option value="Хичээл 2">Хичээл 2</option>
-            <option value="Хичээл 3">Хичээл 3</option>
-            <option value="Хичээл 4">Хичээл 4</option>
-            <option value="Хичээл 5">Хичээл 5</option>
-            <option value="Хичээл 6">Хичээл 6</option>
-            <option value="Хичээл 7">Хичээл 7</option>
-            <option value="Хичээл 8">Хичээл 8</option>
-            <option value="Хичээл 9">Хичээл 9</option>
-            <option value="Хичээл 10">Хичээл 10</option>
-            <option value="Хичээл 11">Хичээл 11</option>
-            <option value="Хичээл 12">Хичээл 12</option>
-            <option value="Хичээл 13">Хичээл 13</option>
-            <option value="Хичээл 14">Хичээл 14</option>
-            <option value="Хичээл 15">Хичээл 15</option>
-          </select>
-          <div class="flex flex-col items-end">
-            <span class="mainName text-2xl">Хичээл Нэр</span>
-            <span class="mainSub text-xs text-gray-400">тайлбар</span>
-          </div>
-          <!-- End Select -->
+      </div>
+      <!-- Top -->
+      <div class="top h-20 flex justify-between items-center">
+        <!-- Select -->
+        <select class="text-sm !min-w-32 ui dropdown" id="select">
+          <option value="">Хичээл сонгох...</option>
+          <option value="Топик">Топик</option>
+          <option value="Дүрэм">Дүрэм</option>
+          <option value="Хичээл 1">Хичээл 1</option>
+          <option value="Хичээл 2">Хичээл 2</option>
+          <option value="Хичээл 3">Хичээл 3</option>
+          <option value="Хичээл 4">Хичээл 4</option>
+          <option value="Хичээл 5">Хичээл 5</option>
+          <option value="Хичээл 6">Хичээл 6</option>
+          <option value="Хичээл 7">Хичээл 7</option>
+          <option value="Хичээл 8">Хичээл 8</option>
+          <option value="Хичээл 9">Хичээл 9</option>
+          <option value="Хичээл 10">Хичээл 10</option>
+          <option value="Хичээл 11">Хичээл 11</option>
+          <option value="Хичээл 12">Хичээл 12</option>
+          <option value="Хичээл 13">Хичээл 13</option>
+          <option value="Хичээл 14">Хичээл 14</option>
+          <option value="Хичээл 15">Хичээл 15</option>
+        </select>
+        <div class="flex flex-col items-end">
+          <span class="mainName text-2xl">Хичээл Нэр</span>
+          <span class="mainSub text-xs text-gray-400">тайлбар</span>
         </div>
+        <!-- End Select -->
       </div>
       <!-- End Top -->
 
-      <!-- Button -->
+      <!-- Word -->
       <div
-        class="col-[1/_span_full] row-[4/_span_1] -mt-12 md:col-[9/_span_4] md:row-[4/_span_1]"
+        class="board flex flex-col justify-center items-center h-3/6 rounded-3xl bg-[#D6EBEB] my-3 overflow-hidden"
       >
-        <div class="bottom mt-6">
-          <div class="relative first flex space-x-2">
-            <div
-              class="flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            >
-              <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-              </div>
-              <button
-                id="modal1"
-                type="button"
-                class="px-4 disabled:opacity-50 disabled:pointer-events-none"
-                data-hs-overlay="#hs-overlay-example"
-                disabled
-              >
-                Үг нэмэх
-              </button>
-              <!-- disabled:opacity-50 disabled:pointer-events-none -->
-            </div>
-            <div
-              id="orchuulga"
-              class="active:translate-y-1 ease-in duration-75 hold flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            >
-              <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
-                <svg
-                  class="flex-shrink-0 w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                  />
-                </svg>
-              </div>
-              <button type="button" class="px-4">Орчуулга</button>
-            </div>
-            <div
-              class="toast absolute top-0 left-0 w-1/2 h-14"
-              id="toast1"
-            ></div>
-          </div>
+        <div class="font-Start text-6xl">
+          <span class="word">Бэлэн үү</span>
+        </div>
+        <div class="tran hidden absolute mt-40 lowercase"></div>
+        <!-- Progress -->
+        <div
+          class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700"
+          role="progressbar"
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div
+            class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 dark:bg-blue-500"
+            style="width: 25%"
+          ></div>
+        </div>
+        <!-- End Progress -->
+      </div>
+      <!-- End Word -->
 
-          <div class="next mt-3">
-            <button
-              id="next"
-              type="button"
-              class="active:translate-y-1 ease-in duration-75 w-full py-2 px-4 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            >
-              <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
-                <svg
-                  class="flex-shrink-0 w-8 h-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+      <!-- Button -->
+      <div class="bottom mt-6">
+        <div class="relative first flex space-x-2">
+          <div
+            class="flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </div>
-              <div class="pr-20 text-lg">Дараагийн үг</div>
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </div>
+            <button
+              id="modal1"
+              type="button"
+              class="px-4 disabled:opacity-50 disabled:pointer-events-none"
+              data-hs-overlay="#hs-overlay-example"
+              disabled
+            >
+              Үг нэмэх
             </button>
+            <!-- disabled:opacity-50 disabled:pointer-events-none -->
           </div>
-          <div class="hidden hint text-xs">
-            <span>→ энэ нь дээр дарвал дараагийн үг гарна </span>
-            <span>↓ энэ нь дээр дарвал орчуулагийн үг гарна </span>
+          <div
+            id="orchuulga"
+            class="active:translate-y-1 ease-in duration-75 hold flex items-center w-1/2 py-2 px-2 text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-4 py-4 rounded-full bg-[#D6EBEB]">
+              <svg
+                class="flex-shrink-0 w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
+                />
+              </svg>
+            </div>
+            <button type="button" class="px-4">Орчуулга</button>
           </div>
+          <div class="toast absolute top-0 left-0 w-1/2 h-14" id="toast1"></div>
+        </div>
+
+        <div class="next mt-3">
+          <button
+            id="next"
+            type="button"
+            class="active:translate-y-1 ease-in duration-75 w-full py-2 px-4 inline-flex justify-between items-center text-sm font-medium rounded-3xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          >
+            <div class="icon px-5 py-4 rounded-3xl bg-[#D6EBEB]">
+              <svg
+                class="flex-shrink-0 w-8 h-8"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </div>
+            <div class="pr-20 text-lg">Дараагийн үг</div>
+          </button>
         </div>
       </div>
       <!-- END Button -->
-
-      <!-- Word -->
-      <div
-        class="col-[1/_span_full] row-[2/_span_1] -mt-8 md:col-[1/_span_8] md:row-[2/_span_8] md:-mt-12"
-      >
-        <div
-          class="flex flex-col justify-center items-center h-[18rem] md:h-[26rem] rounded-3xl bg-[#D6EBEB] overflow-hidden"
-        >
-          <div class="font-Start text-6xl">
-            <span class="word">Бэлэн үү</span>
-          </div>
-          <div class="tran hidden absolute mt-40 lowercase"></div>
-        </div>
-      </div>
-      <!-- End Word -->
 
       <!-- Toast -->
       <div

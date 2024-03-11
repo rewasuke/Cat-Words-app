@@ -101,7 +101,7 @@ sbtn.addEventListener("click", function (e) {
         Translate: translateText,
       })
       .then(() => {
-        $(".ui.dropdown").dropdown("clear");
+        // $(".ui.dropdown").dropdown("clear");
         form2.reset();
       })
       .catch((error) => {
@@ -126,12 +126,30 @@ $("#next").on("click", function () {
 $("#orchuulga").on("click", function () {
   toastCheck();
 });
+$(document).keydown(function (e) {
+  // ArrowDown
+  if (e.which === 40) {
+    toastCheck();
+  }
+});
+$(document).keydown(function (e) {
+  // ArrowRight
+  if (e.which === 39) {
+    toastCheck();
+  }
+});
 
 $("#select").change(function () {
   //Use $option (with the "$") to see that the variable is a jQuery object
   var $option = $(this).find("option:selected");
   //Added with the EDIT
   var sukeValue = $option.val(); //to get content of "value" attrib
+  // Хэрэглэгчээс авсан датаг дэлгэцэнд гарах
+  const current = document.querySelector(".word");
+  const btnNext = document.querySelector(".next");
+  const btnHold = document.querySelector(".hold");
+  const current2 = document.querySelector(".tran");
+  const board = document.querySelector(".board");
 
   if (sukeValue) {
     $(".mainName").replaceWith(
@@ -143,15 +161,11 @@ $("#select").change(function () {
     );
   }
 
-  // Хэрэглэгчээс авсан датаг дэлгэцэнд гарах
-  const current = document.querySelector(".word");
-  const btnNext = document.querySelector(".next");
-  const btnHold = document.querySelector(".hold");
-  const current2 = document.querySelector(".tran");
-
   current2.classList.add("hidden");
+  current.innerHTML = "Бэлэн үү";
 
   let books = [];
+
   db.collection(sukeValue).onSnapshot(function (querySnapshot) {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === "added") {
@@ -216,6 +230,21 @@ $("#select").change(function () {
     }
   }
 
+  // Keyboard events
+
+  $(document).keydown(function (e) {
+    // ArrowDown
+    if (e.which === 40) {
+      clickHold();
+    }
+  });
+  $(document).keydown(function (e) {
+    // ArrowRight
+    if (e.which === 39) {
+      clickDown();
+    }
+  });
+
   btnHold.addEventListener("click", function () {
     clickHold();
   });
@@ -232,20 +261,43 @@ $("#select").change(function () {
     }
   }
 
-  // Keyboard events
+  // let intervalId;
 
-  $(document).keydown(function (e) {
-    // ArrowDown
-    if (e.which === 40) {
-      clickHold();
-    }
-  });
-  $(document).keydown(function (e) {
-    // ArrowRight
-    if (e.which === 39) {
-      clickDown();
-    }
-  });
+  // // Function to append "Hello" to the paragraph element
+  // function appendHello() {
+  //   next(books);
+  //   current2.classList.add("hidden");
+  //   if (rename === undefined) {
+  //     $(".mainSub").replaceWith(
+  //       `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+  //          <p class="inline-block w-4 text-right ">0</p> /<p class="inline-block w-4 text-right ">0</p>
+  //          </span>`
+  //     );
+  //   } else {
+  //     html = `<h2 class="text-[3rem] font-Rubik">$rename1$</h2>`;
+  //     html = html.replace("$rename1$", rename);
+  //     current.innerHTML = html;
+  //     $(".mainSub").replaceWith(
+  //       `<span class="text-center mainSub text-xs text-gray-400 ">${sukeValue} -н цээжлэх үгнүүд
+  //          <p class="inline-block w-4 text-right ">${index}</p> /<p class="inline-block w-4 text-right ">${books.length}</p>
+  //          </span>`
+  //     );
+  //   }
+  // }
+  // // Event listener for mouse down to start appending "Hello"
+  // btnHold.addEventListener("mousedown", function () {
+  //   clearInterval(intervalId);
+  //   clickHold();
+  // });
+
+  // // Event listener for mouse leave to stop appending "Hello"
+  // btnHold.addEventListener("mouseup", function () {
+  //   intervalId = setInterval(appendHello, 3000);
+  // });
+
+  // btnNext.addEventListener("click", function () {
+  //   intervalId = setInterval(appendHello, 3000);
+  // });
 });
 
 $("#admin").on("click", function () {
