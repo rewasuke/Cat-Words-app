@@ -3,12 +3,7 @@
   "short_name": "Cat words",
   "icons": [
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
+      "src": "./cat.png",
       "sizes": "512x512",
       "type": "image/png"
     }
