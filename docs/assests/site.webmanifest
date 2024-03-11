@@ -1,24 +1,23 @@
 {
   "name": "Cat words app",
   "short_name": "Cat words",
-  "description": "Үг цээжлэх апп",
   "icons": [
     {
-      "src": "/docs/assests/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/docs/assests/cat.png",
+      "src": "./cat.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Open Play Later",
+      "short_name": "Play Later",
+      "description": "View the list of podcasts you saved for later",
+      "url": "/play-later?utm_source=homescreen",
+      "icons": [{ "src": "./maskable_icon_x192.png", "sizes": "192x192" }]
+    }
+  ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "id": "/?source=pwa",
-  "start_url": "/",
-  "scope": "/",
-  "lang": "mn",
   "display": "standalone"
 }
