@@ -3,18 +3,14 @@
   "short_name": "Cat words",
   "icons": [
     {
-      "src": "./cat.png",
+      "src": "/android-chrome-512x512.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Open Play Later",
-      "short_name": "Play Later",
-      "description": "View the list of podcasts you saved for later",
-      "url": "/play-later?utm_source=homescreen",
-      "icons": [{ "src": "./maskable_icon_x192.png", "sizes": "192x192" }]
     }
   ],
   "theme_color": "#ffffff",
