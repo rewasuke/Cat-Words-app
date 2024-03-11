@@ -1,8 +1,7 @@
 {
   "name": "Cat words app",
   "short_name": "Cat words",
-  "scope": "/",
-  "start_url": "/",
+  "start_url": "/docs/index.html",
   "icons": [
     {
       "src": "./cat.png",
